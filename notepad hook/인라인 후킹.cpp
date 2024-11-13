@@ -37,7 +37,7 @@ BOOL MyWriteFile(HANDLE hFile, LPCVOID lpBuffer, DWORD nNumberOfBytesToWrite, LP
 
 
 
-PBYTE tramphook(PBYTE src, PBYTE dst, int len)
+PBYTE tramphook(PBYTE src, int len)
 {
 	BYTE pBuf1[2] = { 0x48, 0xb8};
 	BYTE pBuf2[2] = { 0xff, 0xe0 };
@@ -74,7 +74,7 @@ BOOL Thread()
 	memcpy(&WriteFile[1], &dwaddress, 4);
 
 	
-	myfunc = (MyFunctionType)tramphook(WriteFile + 5, (PBYTE)MyWriteFile, 5);
+	myfunc = (MyFunctionType)tramphook(WriteFile + 5, 5);
 
 
 
