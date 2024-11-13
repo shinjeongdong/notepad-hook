@@ -17,7 +17,7 @@ MyFunctionType myfunc = nullptr;
 BOOL MyWriteFile(HANDLE hFile, LPCVOID lpBuffer, DWORD nNumberOfBytesToWrite, LPDWORD lpNumberOfBytesWritten, LPOVERLAPPED lpOverlapped)
 {
 
-	// 문자가 들어 있는 nNumberOfBytesToWrite를 소문자를에서 대문자로 바꿔주는 작업이다. 
+	// lpBuffer에 들어있는 문자를 소문자에서 대문자로 바꿔주는 작업이다. 
 	PBYTE lpBuffera = (PBYTE)malloc(nNumberOfBytesToWrite + 1);
 
 	memcpy(lpBuffera, lpBuffer, nNumberOfBytesToWrite + 1);
